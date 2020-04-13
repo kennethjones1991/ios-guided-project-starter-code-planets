@@ -57,12 +57,10 @@ extension PlanetsCollectionViewController: UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PlanetCollectionViewCell.reuseIdentifier, for: indexPath) as? PlanetCollectionViewCell else {
-            return UICollectionViewCell()
+            fatalError("Dequeued cell could not be cast as \(PlanetCollectionViewCell.self)")
         }
 
-        let planet = planetController.planets[indexPath.item]
-        cell.planet = planet
-    
+        cell.planet = planetController.planets[indexPath.item]
         return cell
     }
 }

@@ -14,6 +14,8 @@ protocol SettingsDelegate {
 
 class SettingsViewController: UIViewController {
     
+    // MARK: - Properties
+    
     var shouldShowPlutoSwitch = UISwitch()
     
     // MARK: - Initialization
@@ -36,18 +38,16 @@ class SettingsViewController: UIViewController {
         updateViews()
     }
     
-    // MARK: - Action Handlers
+    // MARK: - Private
     
-    func changeShouldShowPluto(_ sender: UISwitch) {
+    @objc private func changeShouldShowPluto(_ sender: UISwitch) {
         let userDefaults = UserDefaults.standard
         userDefaults.set(sender.isOn, forKey: .shouldShowPlutoKey)
     }
     
-    @objc func done() {
+    @objc private func done() {
         dismiss(animated: true, completion: nil)
     }
-    
-    // MARK: - Private
     
     private func updateViews() {
         let userDefaults = UserDefaults.standard
@@ -60,21 +60,24 @@ class SettingsViewController: UIViewController {
         
         // 2. Add to view hierarchy
         
-        // 3. Create/activate constraints
+        // 3. Create constraints
         
         // Switch
         // 1. Create/configure
         
         // 2. Add to view hierarchy
         
-        // 3. Create/activate constraints
+        // 3. Create constraints
         
         // Label
         // 1. Create/configure
         
         // 2. Add to view hierarchy
         
-        // 3. Create/activate constraints
+        // 3. Create constraints
+        
+        // All
+        // 4. Activate constraints
         
     }
 }
